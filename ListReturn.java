@@ -1,6 +1,7 @@
 package org.example;
 
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -10,7 +11,7 @@ public class ListReturn {
         if (list.stream().allMatch(i -> i >= min && i <= max)) {
             return list.stream()
                     .distinct()
-                    .sorted()
+                    .sorted(Comparator.reverseOrder())
                     .collect(Collectors.toList());
         } else {
             throw new IllegalArgumentException("Input list " + list + " is not with in the range" + min + "and" + max);
